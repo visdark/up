@@ -34,7 +34,30 @@
     <script src="pngfix.min.js"></script>
     <script>DD_belatedPNG.fix('#i18n-alert, header, #browserlist li .icon, footer, #share nav li a, #byline a');</script>
     <![endif]-->
+    <!-- *防止中国式的运营商劫持 开始-->
+    <style>
+        html {
+            display: none;
+        }
 
+        iframe {
+            display: none;
+            display: none !important;
+        }
+    </style>
+    <script>
+        if (self == top) {
+            document.documentElement.style.display = 'block';
+        } else {
+            top.location = self.location;
+        }
+    </script>
+    <!-- *防止中国式的运营商劫持 结束-->
+    <!-- *防止百度转码的“好意” 开始-->
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <!-- *防止百度转码的“好意” 结束-->
     <style type="text/css">
         img.wp-smiley,
         img.emoji {
@@ -96,7 +119,7 @@
                     <p class="version">最新版本: <strong>9.1</strong></p>
                     <p class="website">查看官网</p>
                 </a>
-                <p class="likebutton"></p></li><!-- #safari -->
+
             <li id="opera">
                 <a href="http://www.opera.com/" title="Opera">
                     <div class="icon"></div>
